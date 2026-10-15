@@ -19,20 +19,20 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Beleuchtetes Schaufenster von Schlüsseldienst Beck mit Ladenschild und Rufnummer">
 <link rel="preload" href="assets/fonts/montserrat-wght.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" href="assets/favicon-tuerkis.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon-tuerkis.png">
 <style>
 @font-face { font-family: "Montserrat"; src: url("assets/fonts/montserrat-wght.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
 
 :root {
   --text: #4a5163;
   --titel: #333340;
-  --blau: #00476f;
-  --blau-hell: #08588c;
-  --strich: #9fb4c3;
-  --band: #f1f3f5;
-  --linie: #dfe3e8;
-  --fuss: #e3e9ee;
+  --akzent: #0e7480;
+  --akzent-dunkel: #0b646e;
+  --strich: #7cc8c4;
+  --band: #eaf6f5;
+  --linie: #d5e6e4;
+  --fuss: #d6eceb;
   --gruen: #0f7a3f;
   --gruen-dunkel: #0b6633;
   --weiss: #ffffff;
@@ -44,11 +44,11 @@
 
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--kopf) + 12px); }
-body { margin: 0; background: var(--weiss); color: var(--text); font: 400 17px/1.75 "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: rgba(0, 71, 111, .12); }
+body { margin: 0; background: var(--weiss); color: var(--text); font: 400 17px/1.75 "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: rgba(14, 116, 128, .12); }
 img { display: block; max-width: 100%; height: auto; }
-a { color: var(--blau); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a { color: var(--akzent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
 a, button, summary { touch-action: manipulation; }
-:focus-visible { outline: 2px solid var(--blau-hell); outline-offset: 3px; border-radius: 2px; }
+:focus-visible { outline: 2px solid var(--akzent-dunkel); outline-offset: 3px; border-radius: 2px; }
 h1, h2, h3 { color: var(--titel); font-weight: 500; line-height: 1.25; margin: 0; text-wrap: balance; overflow-wrap: break-word; }
 p, li, dd { text-wrap: pretty; hyphens: auto; hyphenate-limit-chars: 10 4 4; -webkit-hyphenate-limit-before: 4; -webkit-hyphenate-limit-after: 4; }
 p { margin: 0 0 1em; }
@@ -58,17 +58,17 @@ address { font-style: normal; }
 .nb { white-space: nowrap; }
 .icon { width: 1.15em; height: 1.15em; flex: none; }
 .innen { width: min(100% - 2 * var(--rand), var(--breite)); margin-inline: auto; }
-.sprung { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--blau); color: #fff; padding: 10px 16px; border-radius: var(--radius); }
+.sprung { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--akzent); color: #fff; padding: 10px 16px; border-radius: var(--radius); }
 .sprung:focus { top: 12px; }
 
 .strich { position: relative; padding-left: 22px; }
 .strich::before { content: ""; position: absolute; left: 0; top: .18em; bottom: .18em; width: 3px; border-radius: 2px; background: var(--strich); }
 
-.knopf { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 11px 22px; border-radius: var(--radius); font: 500 16px/1.2 inherit; font-family: inherit; text-decoration: none; color: #fff; background: var(--blau); border: 0; transition: background-color .15s ease; }
+.knopf { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 11px 22px; border-radius: var(--radius); font: 500 16px/1.2 inherit; font-family: inherit; text-decoration: none; color: #fff; background: var(--akzent); border: 0; transition: background-color .15s ease; }
 .knopf.wa { background: var(--gruen); }
 .knopf.klein { min-height: 44px; padding: 9px 18px; font-size: 15px; }
 @media (hover: hover) {
-  .knopf:hover { background: var(--blau-hell); }
+  .knopf:hover { background: var(--akzent-dunkel); }
   .knopf.wa:hover { background: var(--gruen-dunkel); }
   a:hover { text-decoration-thickness: 2px; }
 }
@@ -85,7 +85,7 @@ address { font-style: normal; }
 .kopf-nav a { display: flex; align-items: center; min-height: 44px; padding: 0 18px; color: var(--text); text-decoration: none; font-size: 16px; border-left: 1px solid var(--linie); }
 .kopf-nav a:first-child { border-left: 0; }
 .kopf-ruf { display: none; }
-.kopf-tel { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: var(--radius); background: var(--blau); color: #fff; }
+.kopf-tel { display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: var(--radius); background: var(--akzent); color: #fff; }
 .kopf-tel .icon { width: 22px; height: 22px; }
 
 .menue { position: relative; }
@@ -127,7 +127,7 @@ address { font-style: normal; }
 .start-text p { text-wrap: wrap; max-width: 34em; }
 .start-text .knoepfe { margin-top: 28px; }
 .wertung { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 10px; margin: 18px 0 0; font-size: 15px; }
-.sterne { display: inline-flex; gap: 2px; color: var(--blau); }
+.sterne { display: inline-flex; gap: 2px; color: var(--akzent); }
 .sterne .icon { width: 16px; height: 16px; }
 @media (min-width: 900px) {
   .start-raster { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(40px, 6vw, 80px); }
@@ -145,7 +145,7 @@ address { font-style: normal; }
 .karte h3 { font-size: 21px; text-align: center; }
 @media (min-width: 1100px) { .karte h3 { min-height: 2.5em; } }
 .karte .preis { text-align: center; margin: 12px 0 16px; color: var(--text); font-size: 15px; }
-.karte .preis strong { display: block; color: var(--blau); font-size: 28px; font-weight: 600; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.karte .preis strong { display: block; color: var(--akzent); font-size: 28px; font-weight: 600; line-height: 1.2; font-variant-numeric: tabular-nums; }
 .karte .preis.wort strong { font-size: 21px; }
 .karte p.text { flex: 1; font-size: 16px; hyphens: manual; }
 .karte .knopf { align-self: center; margin-top: 6px; }
@@ -165,21 +165,21 @@ address { font-style: normal; }
 @media (min-width: 640px) { .liste-karte ul { columns: 2; } }
 @media (min-width: 1000px) { .liste-karte ul { columns: 3; } }
 .liste-karte li { break-inside: avoid; padding: 5px 0; }
-.liste-karte li::marker { color: var(--blau); }
+.liste-karte li::marker { color: var(--akzent); }
 
 .spalten { display: grid; grid-template-columns: minmax(0, 1fr); gap: 48px; }
 @media (min-width: 900px) { .spalten { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(48px, 7vw, 96px); } }
 .spalten h2 { font-size: clamp(24px, 2.6vw, 30px); margin-bottom: 22px; }
 .schritte { list-style: none; margin: 0; padding: 0; counter-reset: s; }
 .schritte li { counter-increment: s; position: relative; padding: 0 0 18px 48px; }
-.schritte li::before { content: counter(s); position: absolute; left: 0; top: 2px; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--strich); color: var(--blau); font-weight: 600; font-size: 15px; display: grid; place-items: center; }
+.schritte li::before { content: counter(s); position: absolute; left: 0; top: 2px; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--strich); color: var(--akzent); font-weight: 600; font-size: 15px; display: grid; place-items: center; }
 .schritte h3 { font-size: 18px; font-weight: 600; margin-bottom: 2px; }
 .schritte p { margin: 0; font-size: 16px; }
 .preisliste { margin: 0 0 22px; padding: 0; }
 .preisliste div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--linie); }
 .preisliste div:first-child { border-top: 1px solid var(--linie); }
 .preisliste dt { color: var(--titel); font-weight: 500; }
-.preisliste dd { margin: 0; color: var(--blau); font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+.preisliste dd { margin: 0; color: var(--akzent); font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
 @media (max-width: 479px) { .preisliste div { flex-direction: column; align-items: flex-start; gap: 2px; } .preisliste dd { text-align: left; } }
 .spalten .knopf { margin-top: 6px; }
 
@@ -204,14 +204,14 @@ address { font-style: normal; }
 .frage summary { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 14px 0; cursor: pointer; }
 .frage summary::-webkit-details-marker { display: none; }
 .frage summary h3 { font-size: 18px; font-weight: 500; }
-.frage summary .icon { color: var(--blau); width: 22px; height: 22px; transition: transform .2s ease; }
+.frage summary .icon { color: var(--akzent); width: 22px; height: 22px; transition: transform .2s ease; }
 .frage[open] summary .icon { transform: rotate(180deg); }
 .frage p { margin: 0 0 20px; max-width: 40em; }
 .fragen-hinweis { margin: 24px 0 0; }
 
 .kontakt-liste { list-style: none; margin: 8px 0 28px; padding: 0; }
 .kontakt-liste li { display: flex; gap: 12px; align-items: flex-start; padding: 6px 0; }
-.kontakt-liste .icon { color: var(--blau); margin-top: .35em; }
+.kontakt-liste .icon { color: var(--akzent); margin-top: .35em; }
 .kontakt-liste a { display: inline-flex; min-height: 32px; align-items: center; }
 .kontakt-bild img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 
@@ -252,7 +252,7 @@ body { --dock-platz: 76px; }
 <a class="sprung" href="#inhalt">Zum Inhalt springen</a>
 <header class="kopf">
   <div class="innen kopf-innen">
-    <a class="kopf-logo" href="#start"><img src="assets/img/logo-beck.svg" width="158" height="44" alt="Schlüsseldienst Beck"></a>
+    <a class="kopf-logo" href="#start"><img src="assets/img/logo-beck-tuerkis.svg" width="158" height="44" alt="Schlüsseldienst Beck"></a>
     <nav class="kopf-nav" aria-label="Seite">
       <a href="#leistungen">Leistungen</a>
       <a href="#ueber-uns">Über uns</a>
@@ -526,7 +526,7 @@ body { --dock-platz: 76px; }
 <footer class="fuss">
   <div class="innen fuss-oben">
     <div>
-      <a class="fuss-logo" href="#start"><img src="assets/img/logo-beck.svg" width="150" height="42" alt="Schlüsseldienst Beck" loading="lazy"></a>
+      <a class="fuss-logo" href="#start"><img src="assets/img/logo-beck-tuerkis.svg" width="150" height="42" alt="Schlüsseldienst Beck" loading="lazy"></a>
       <p>Schlüsseldienst und Sicherheits&shy;technik in Mülheim an der Ruhr. Rund um die Uhr, auch an Wochenenden und&nbsp;Feiertagen.</p>
     </div>
     <nav aria-labelledby="fuss-leistungen">
