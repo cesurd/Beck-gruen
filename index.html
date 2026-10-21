@@ -263,15 +263,11 @@ address { font-style: normal; }
 .schritte li::before { content: counter(s); position: absolute; left: 0; top: 2px; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--strich); color: var(--akzent); font-weight: 600; font-size: 15px; display: grid; place-items: center; }
 .schritte h3 { font-size: 18px; font-weight: 600; margin-bottom: 2px; }
 .schritte p { margin: 0; font-size: 16px; }
-.preis-kacheln { list-style: none; margin: 0 0 22px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.preis-kacheln li { display: flex; flex-direction: column; padding: 16px 18px 14px; background: var(--band); border-radius: var(--r-flaeche); border-top: 3px solid var(--gold); hyphens: manual; }
-.pk-art { color: var(--titel); font-weight: 600; font-size: 16px; line-height: 1.35; }
-.pk-zeit { margin-top: 2px; font-size: 14px; line-height: 1.45; color: var(--text); }
-.pk-betrag { margin-top: auto; padding-top: 10px; font-family: var(--serif); font-size: 34px; line-height: 1.05; color: var(--titel); font-variant-numeric: lining-nums; white-space: nowrap; }
-.pk-betrag small { font-family: "Montserrat", sans-serif; font-size: 15px; color: var(--text); }
-.preis-kacheln .pk-anfahrt { background: var(--weiss); border: 1px solid var(--linie); border-top: 3px solid var(--gold); }
-@media (max-width: 359px) { .preis-kacheln { grid-template-columns: minmax(0, 1fr); } }
-.preis-hinweis { font-size: 15px; }
+.preis-karte { padding: clamp(20px, 3vw, 28px); background: var(--band); border-radius: var(--r-flaeche); border-top: 3px solid var(--gold); }
+.preis-karte .knopf { margin-top: 4px; }
+.abschnitt.band .preis-karte { background: var(--weiss); }
+.abschnitt:not(.band) .stimme { background: var(--band); }
+#kontakt .knopf { padding: 12px 20px; }
 .spalten .knopf { margin-top: 6px; }
 
 .stimmen { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
@@ -334,6 +330,20 @@ html.js.dock-an .dock { transform: none; }
 body { --dock-platz: 76px; }
 @media (min-width: 1100px) { .dock { display: none; } body { --dock-platz: 0px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+
+#kurz { padding-top: 0; }
+#kurz .kopfzeile p { max-width: 44em; }
+.kurzinfo { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; margin: 0; }
+@media (min-width: 380px) { .kurzinfo { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 900px) { .kurzinfo { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; } }
+.kurzinfo div { padding: 14px 14px 14px 16px; background: var(--band); border-left: 3px solid var(--gold); border-radius: 0 var(--r-flaeche) var(--r-flaeche) 0; }
+.abschnitt.band .kurzinfo div { background: var(--weiss); }
+.kurzinfo dt { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-text); }
+.kurzinfo dd { margin: 4px 0 0; color: var(--titel); font-weight: 500; line-height: 1.5; hyphens: manual; text-wrap: pretty; }
+.stadtteil-raster { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px 48px; margin: clamp(24px, 3vw, 32px) 0 clamp(28px, 4vw, 40px); }
+@media (min-width: 800px) { .stadtteil-raster { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.stadtteil-raster h3 { font-family: var(--serif); font-weight: 400; font-size: 24px; margin-bottom: 6px; }
+.stadtteil-raster p { margin: 0; hyphens: manual; }
 </style>
 </head>
 <body>
@@ -363,7 +373,7 @@ body { --dock-platz: 76px; }
     <nav class="kopf-nav" aria-label="Seite">
       <a href="#leistungen">Leistungen</a>
       <a href="#ueber-uns">Über uns</a>
-      <a href="#preise">Preise</a>
+      <a href="preise/">Preise</a>
       <a href="#einsatzgebiet">Einsatzgebiet</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
@@ -376,14 +386,14 @@ body { --dock-platz: 76px; }
         <ul>
           <li><a href="#leistungen">Leistungen</a></li>
           <li><a href="#ueber-uns">Über uns</a></li>
-          <li><a href="#preise">Preise</a></li>
+          <li><a href="preise/">Preise</a></li>
           <li><a href="#einsatzgebiet">Einsatzgebiet</a></li>
           <li><a href="#fragen">Häufige Fragen</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
         <div class="knoepfe">
           <a class="knopf" href="tel:+492087686233"><svg class="icon" aria-hidden="true"><use href="#i-tel"/></svg>0208&nbsp;7686233</a>
-          <a class="knopf wa" href="https://wa.me/4915792450008" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp&nbsp;schreiben</a>
+          <a class="knopf wa" href="https://wa.me/4915792450050" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp&nbsp;schreiben</a>
         </div>
       </nav>
     </details>
@@ -399,7 +409,7 @@ body { --dock-platz: 76px; }
       <p class="unterzeile">Türöffnung, Schlosswechsel und Sicherheits&shy;technik, rund um die Uhr&nbsp;erreichbar.</p>
       <div class="knoepfe" id="start-knoepfe">
         <a class="knopf" href="tel:+492087686233"><svg class="icon" aria-hidden="true"><use href="#i-tel"/></svg><span>0208&nbsp;7686233<span class="lang">&nbsp;anrufen</span></span></a>
-        <a class="knopf rahmen" href="https://wa.me/4915792450008" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp&nbsp;schreiben</a>
+        <a class="knopf rahmen" href="https://wa.me/4915792450050" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp&nbsp;schreiben</a>
       </div>
       <ul class="fakten">
         <li><span class="kreis"><svg class="icon" aria-hidden="true"><use href="#i-euro"/></svg></span><span><strong>Türöffnung ab 49&nbsp;€</strong>für Zimmertüren</span></li>
@@ -464,6 +474,25 @@ body { --dock-platz: 76px; }
   </div>
 </section>
 
+<section class="abschnitt band" id="kurz" aria-labelledby="kurz-titel">
+  <div class="innen">
+    <div class="kopfzeile">
+      <h2 id="kurz-titel" class="strich">Schlüsseldienst Mülheim: das Wichtigste in&nbsp;Kürze</h2>
+      <p>Schlüsseldienst Beck ist Ihr Schlüssel&shy;notdienst für Mülheim an der Ruhr, mit eigenem Laden in der Friedrich&shy;straße&nbsp;10. Wir öffnen zugefallene und abgeschlossene Türen, tauschen Zylinder, machen Schlüssel nach und beraten zum Einbruch&shy;schutz. Telefon rund um die Uhr: <a href="tel:+492087686233">0208&nbsp;7686233</a>.</p>
+    </div>
+    <dl class="kurzinfo">
+        <div><dt>Erreichbar</dt><dd>24 Stunden, auch an Sonn- und Feiertagen</dd></div>
+        <div><dt>Vor Ort</dt><dd>in Mülheim im Schnitt in <span class="nb">10–20&nbsp;Minuten</span></dd></div>
+        <div><dt>Türöffnung</dt><dd>ab 49&nbsp;€ (Zimmertür, <span class="nb">Mo–Fr</span> tagsüber)</dd></div>
+        <div><dt>Zylinder</dt><dd>Wechsel ab 79&nbsp;€ zzgl. Material</dd></div>
+        <div><dt>Sicherheit</dt><dd>Öffnung nur mit Legitimation</dd></div>
+        <div><dt>Schlüssel</dt><dd>nachmachen im Laden, täglich <span class="nb">13:00–15:00&nbsp;Uhr</span></dd></div>
+        <div><dt>Einbruchschutz</dt><dd>Unser Monteur berät Sie kostenlos vor Ort</dd></div>
+        <div><dt>Bewertung</dt><dd>5,0 Sterne bei Google</dd></div>
+    </dl>
+  </div>
+</section>
+
 <section class="abschnitt" id="ueber-uns" aria-labelledby="ueber-titel">
   <div class="innen zwei">
     <div class="zwei-bild">
@@ -516,17 +545,12 @@ body { --dock-platz: 76px; }
     </div>
     <div>
       <h2 id="preise-titel">Preise</h2>
-      <ul class="preis-kacheln">
-        <li><span class="pk-art">Zimmertür öffnen</span><span class="pk-zeit">Mo–Fr, <span class="nb">9:00–18:30&nbsp;Uhr</span></span><span class="pk-betrag"><small>ab</small> 49&nbsp;€</span></li>
-        <li><span class="pk-art">Wohnungstür öffnen</span><span class="pk-zeit">Mo–Fr, <span class="nb">9:00–18:30&nbsp;Uhr</span></span><span class="pk-betrag"><small>ab</small> 69&nbsp;€</span></li>
-        <li><span class="pk-art">Wohnungstür öffnen</span><span class="pk-zeit">Sa, So, Feiertag, <span class="nb">9:00–16:00&nbsp;Uhr</span></span><span class="pk-betrag"><small>ab</small> 129&nbsp;€</span></li>
-        <li><span class="pk-art">Schloss oder Zylinder wechseln</span><span class="pk-zeit">Material extra</span><span class="pk-betrag"><small>ab</small> 79&nbsp;€</span></li>
-        <li><span class="pk-art">Riegel oder Falle reparieren</span><span class="pk-zeit">am Schloss</span><span class="pk-betrag"><small>ab</small> 69&nbsp;€</span></li>
-        <li class="pk-anfahrt"><span class="pk-art">Anfahrt</span><span class="pk-zeit">pauschal im Einsatz&shy;gebiet</span><span class="pk-betrag">36&nbsp;€</span></li>
-      </ul>
-      <p class="preis-hinweis">Alle Preise inklusive gesetzlicher Mehrwertsteuer, zuzüglich Anfahrt. Material berechnen wir nach Aufwand. Abends, nachts und an Feiertagen kommen feste Zuschläge von 50 bis 100&nbsp;% dazu.</p>
-      <p><strong>Was Ihr Einsatz insgesamt kostet, sagen wir Ihnen vorher am&nbsp;Telefon.</strong></p>
-      <a class="knopf klein" href="tel:+492087686233"><svg class="icon" aria-hidden="true"><use href="#i-tel"/></svg>0208&nbsp;7686233&nbsp;anrufen</a>
+      <div class="preis-karte">
+        <p>Eine Zimmertür öffnen wir Mo–Fr tagsüber <strong>ab 49&nbsp;€</strong>. Alle Preise zzgl. MwSt. und&nbsp;Anfahrt.</p>
+        <p><strong>Was Ihr Einsatz insgesamt kostet, sagen wir Ihnen vorher am&nbsp;Telefon.</strong></p>
+        <p><a href="preise/">Alle Preise ansehen</a></p>
+        <a class="knopf klein" href="tel:+492087686233"><svg class="icon" aria-hidden="true"><use href="#i-tel"/></svg>0208&nbsp;7686233&nbsp;anrufen</a>
+      </div>
     </div>
   </div>
 </section>
@@ -586,7 +610,7 @@ body { --dock-platz: 76px; }
     </div>
     <div class="knoepfe sicher-knoepfe">
       <a class="knopf" href="tel:+492087686233"><svg class="icon" aria-hidden="true"><use href="#i-tel"/></svg>Beratung vereinbaren</a>
-      <a class="knopf wa" href="https://wa.me/4915792450008" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Foto per&nbsp;WhatsApp</a>
+      <a class="knopf wa" href="https://wa.me/4915792450050" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>Foto per&nbsp;WhatsApp</a>
     </div>
   </div>
 </section>
@@ -595,14 +619,36 @@ body { --dock-platz: 76px; }
   <div class="innen">
     <div class="kopfzeile">
       <h2 id="gebiet-titel" class="strich">Von hier aus in ganz Mülheim und&nbsp;rundherum</h2>
-      <p>In Mülheim an der Ruhr sind wir im Schnitt in <strong class="nb">10–20&nbsp;Minuten</strong> vor Ort: in der Stadtmitte rund ums Forum, in Styrum, Dümpten, Winkhausen, Heißen, Eppinghofen, Broich, Speldorf, Saarn, Selbeck, Mintard, Menden und Holthausen. Auch in diesen Städten sind wir für Sie im&nbsp;Einsatz:</p>
+      <p>In Mülheim an der Ruhr sind wir im Schnitt in <strong class="nb">10–20&nbsp;Minuten</strong> vor Ort: in der Stadtmitte rund ums Forum, in Styrum, Dümpten, Winkhausen, Heißen, Eppinghofen, Broich, Speldorf, Saarn, Selbeck, Mintard, Menden und&nbsp;Holthausen.</p>
     </div>
+    <div class="stadtteil-raster">
+      <div>
+        <h3>Stadtmitte und Eppinghofen</h3>
+        <p>Rund ums Forum und im innerstädtischen Eppinghofen wohnen viele Menschen in Mehrfamilien&shy;häusern. Ist dort die Wohnungstür ins Schloss gefallen, öffnen wir sie in den meisten Fällen ohne Schaden und tauschen auf Wunsch gleich den&nbsp;Zylinder.</p>
+      </div>
+      <div>
+        <h3>Styrum und Dümpten</h3>
+        <p>Im Norden, Richtung Oberhausen, liegen Styrum mit seinem Schloss und Dümpten, das teils zu Mülheim und teils zu Oberhausen gehört. Ob Wohnung oder Reihenhaus: Den Preis für Ihre Türöffnung hören Sie vorher am&nbsp;Telefon.</p>
+      </div>
+      <div>
+        <h3>Broich und Speldorf</h3>
+        <p>Links der Ruhr, rund um Schloss Broich und in Speldorf, wechseln wir Schließ&shy;zylinder nach dem Einzug oder nach einem Schlüssel&shy;verlust. Gängige Ersatz&shy;zylinder haben wir im Fahrzeug&nbsp;dabei.</p>
+      </div>
+      <div>
+        <h3>Saarn, Selbeck und Mintard</h3>
+        <p>Saarn ist flächenmäßig der größte Mülheimer Stadtteil, Selbeck und Mintard gehören dazu. Ob am Kloster Saarn oder im Neubaugebiet Saarner Kuppe: Unser Monteur berät Sie kostenlos bei Ihnen zum&nbsp;Einbruchschutz.</p>
+      </div>
+    </div>
+    <p>Auch in diesen Städten sind wir für Sie im&nbsp;Einsatz:</p>
     <ul class="orte">
       <li><a href="schluesseldienst-in-bochum/">Bochum</a></li>
+      <li><a href="schluesseldienst-in-bottrop/">Bottrop</a></li>
       <li><a href="schluesseldienst-in-duisburg/">Duisburg</a></li>
       <li><a href="schluesseldienst-in-duesseldorf/">Düsseldorf</a></li>
       <li><a href="schluesseldienst-in-essen/">Essen</a></li>
+      <li><a href="schluesseldienst-in-gelsenkirchen/">Gelsenkirchen</a></li>
       <li><a href="schluesseldienst-in-haan/">Haan</a></li>
+      <li><a href="schluesseldienst-in-herne/">Herne</a></li>
       <li><a href="schluesseldienst-in-hilden/">Hilden</a></li>
       <li><a href="schluesseldienst-in-kempen/">Kempen</a></li>
       <li><a href="schluesseldienst-in-meerbusch/">Meerbusch</a></li>
@@ -610,12 +656,10 @@ body { --dock-platz: 76px; }
       <li><a href="schluesseldienst-in-neukirchen-vluyn/">Neukirchen-Vluyn</a></li>
       <li><a href="schluesseldienst-in-oberhausen/">Oberhausen</a></li>
       <li><a href="schluesseldienst-in-ratingen/">Ratingen</a></li>
-      <li><a href="schluesseldienst-in-recklinghausen/">Reckling&shy;hausen</a></li>
       <li><a href="schluesseldienst-in-rheinberg/">Rheinberg</a></li>
       <li><a href="schluesseldienst-in-solingen/">Solingen</a></li>
       <li><a href="schluesseldienst-in-witten/">Witten</a></li>
       <li><a href="schluesseldienst-in-wuppertal/">Wuppertal</a></li>
-      <li><a href="schluesseldienst-in-xanten/">Xanten</a></li>
     </ul>
     <p>Ihr Ort ist nicht dabei? Rufen Sie trotzdem an:&nbsp;<a href="tel:+492087686233">0208&nbsp;7686233</a></p>
   </div>
@@ -629,7 +673,7 @@ body { --dock-platz: 76px; }
     <div class="fragen-liste">
       <details class="frage">
         <summary><h3>Was kostet eine Türöffnung in Mülheim?</h3><svg class="icon" aria-hidden="true"><use href="#i-pfeil"/></svg></summary>
-        <p>Eine Zimmertür öffnen wir werktags (Mo–Fr, 9:00–18:30&nbsp;Uhr) ab 49&nbsp;€, eine Wohnungstür ab 69&nbsp;€. Samstags, sonntags und an Feiertagen (9:00–16:00&nbsp;Uhr) kostet die Wohnungstür ab 129&nbsp;€. Dazu kommen 36&nbsp;€ Anfahrt. Abends, nachts und an Feiertagen kommen feste Zuschläge von 50 bis 100&nbsp;% hinzu. Was Ihr Einsatz insgesamt kostet, sagen wir Ihnen vorher am&nbsp;Telefon.</p>
+        <p>Eine Zimmertür öffnen wir werktags (Mo–Fr, 9:00–18:30&nbsp;Uhr) ab 49&nbsp;€, jeweils zzgl. MwSt. und 36&nbsp;€ Anfahrt. Abends, nachts und an Feiertagen gelten Zuschläge. Was Ihr Einsatz insgesamt kostet, sagen wir Ihnen vorher am Telefon. Alle Beträge stehen auf unserer <a href="preise/">Preisseite</a>.</p>
       </details>
       <details class="frage">
         <summary><h3>Wie schnell sind Sie da?</h3><svg class="icon" aria-hidden="true"><use href="#i-pfeil"/></svg></summary>
@@ -641,7 +685,19 @@ body { --dock-platz: 76px; }
       </details>
       <details class="frage">
         <summary><h3>Warum muss ich mich ausweisen?</h3><svg class="icon" aria-hidden="true"><use href="#i-pfeil"/></svg></summary>
-        <p>Wir öffnen nur mit Legitimation, zum Beispiel mit Ihrem Ausweis. Liegt er in der Wohnung, nennen Sie uns Einzelheiten Ihrer Einrichtung. So geht Ihre Tür nur für Menschen auf, die dazu berechtigt&nbsp;sind.</p>
+        <p>Wir öffnen nur mit Legitimation, zum Beispiel mit Ihrem Ausweis. So geht Ihre Tür nur für Menschen auf, die dazu berechtigt&nbsp;sind.</p>
+      </details>
+      <details class="frage">
+        <summary><h3>Mein Ausweis liegt in der Wohnung. Was nun?</h3><svg class="icon" aria-hidden="true"><use href="#i-pfeil"/></svg></summary>
+        <p>Dann beschreiben Sie uns vorab Dinge in der Wohnung, die nur Bewohner kennen. Nach dem Öffnen prüfen wir das zusammen, und Sie zeigen uns Ihren&nbsp;Ausweis.</p>
+      </details>
+      <details class="frage">
+        <summary><h3>Mein Schlüssel ist im Schloss abgebrochen. Was tun?</h3><svg class="icon" aria-hidden="true"><use href="#i-pfeil"/></svg></summary>
+        <p>Ziehen Sie das Reststück nicht mit einer Zange heraus. Wir entfernen es und tauschen den Zylinder, falls er dabei Schaden genommen hat. Ein neuer Zylinder kostet ab 79&nbsp;€ zuzüglich&nbsp;Material.</p>
+      </details>
+      <details class="frage">
+        <summary><h3>Woran erkenne ich einen seriösen Schlüsseldienst?</h3><svg class="icon" aria-hidden="true"><use href="#i-pfeil"/></svg></summary>
+        <p>Ein seriöser Betrieb nennt den Preis vor dem Einsatz, öffnet nur für Berechtigte und stellt eine Rechnung aus. Uns finden Sie außerdem in unserem Laden in der Friedrichstraße, und für Schäden steht unsere Betriebs&shy;haftpflicht&nbsp;ein.</p>
       </details>
       <details class="frage">
         <summary><h3>Sind Sie nachts, am Wochenende und an Feiertagen erreichbar?</h3><svg class="icon" aria-hidden="true"><use href="#i-pfeil"/></svg></summary>
@@ -653,7 +709,7 @@ body { --dock-platz: 76px; }
       </details>
       <details class="frage">
         <summary><h3>Machen Sie Schlüssel nach?</h3><svg class="icon" aria-hidden="true"><use href="#i-pfeil"/></svg></summary>
-        <p>Ja, wir machen Schlüssel nach, auch Autoschlüssel samt Programmierung. Unser Laden in der Friedrichstraße&nbsp;10 ist täglich von 13:00 bis 15:00&nbsp;Uhr geöffnet. Schließanlagen gehören ebenfalls zu unseren&nbsp;Leistungen.</p>
+        <p>Ja, wir machen Schlüssel nach und programmieren Autoschlüssel. Unser Laden in der Friedrichstraße&nbsp;10 ist täglich von 13:00 bis 15:00&nbsp;Uhr geöffnet. Schließanlagen gehören ebenfalls zu unseren&nbsp;Leistungen.</p>
       </details>
       <details class="frage">
         <summary><h3>Wie kann ich bezahlen?</h3><svg class="icon" aria-hidden="true"><use href="#i-pfeil"/></svg></summary>
@@ -671,14 +727,14 @@ body { --dock-platz: 76px; }
       <p><strong>24&nbsp;Stunden erreichbar</strong>, auch an Wochenenden und&nbsp;Feiertagen.</p>
       <ul class="kontakt-liste">
         <li><svg class="icon" aria-hidden="true"><use href="#i-tel"/></svg><a href="tel:+492087686233" translate="no">0208&nbsp;7686233</a></li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg><a href="https://wa.me/4915792450008" target="_blank" rel="noopener">WhatsApp schreiben</a></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg><a href="https://wa.me/4915792450050" target="_blank" rel="noopener">WhatsApp schreiben</a></li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-ort"/></svg><address>Schlüsseldienst Beck<br>Friedrichstraße&nbsp;10<br>45468 Mülheim an der Ruhr</address></li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-uhr"/></svg><span>Laden täglich 13:00–15:00&nbsp;Uhr</span></li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-route"/></svg><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Friedrichstra%C3%9Fe+10%2C+45468+M%C3%BClheim+an+der+Ruhr&amp;destination_place_id=ChIJD3zG6zrBuEcROnU4TVddD4E" target="_blank" rel="noopener">Route in Google Maps öffnen</a></li>
       </ul>
       <div class="knoepfe">
         <a class="knopf" href="tel:+492087686233"><svg class="icon" aria-hidden="true"><use href="#i-tel"/></svg>Jetzt anrufen</a>
-        <a class="knopf wa" href="https://wa.me/4915792450008" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp&nbsp;schreiben</a>
+        <a class="knopf wa" href="https://wa.me/4915792450050" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp&nbsp;schreiben</a>
       </div>
     </div>
     <div class="kontakt-bild">
@@ -711,10 +767,13 @@ body { --dock-platz: 76px; }
       <ul class="fuss-orte">
         <li><a href="#start">Mülheim an der Ruhr</a></li>
         <li><a href="schluesseldienst-in-bochum/">Bochum</a></li>
+        <li><a href="schluesseldienst-in-bottrop/">Bottrop</a></li>
         <li><a href="schluesseldienst-in-duisburg/">Duisburg</a></li>
         <li><a href="schluesseldienst-in-duesseldorf/">Düsseldorf</a></li>
         <li><a href="schluesseldienst-in-essen/">Essen</a></li>
+        <li><a href="schluesseldienst-in-gelsenkirchen/">Gelsenkirchen</a></li>
         <li><a href="schluesseldienst-in-haan/">Haan</a></li>
+        <li><a href="schluesseldienst-in-herne/">Herne</a></li>
         <li><a href="schluesseldienst-in-hilden/">Hilden</a></li>
         <li><a href="schluesseldienst-in-kempen/">Kempen</a></li>
         <li><a href="schluesseldienst-in-meerbusch/">Meerbusch</a></li>
@@ -722,17 +781,15 @@ body { --dock-platz: 76px; }
         <li><a href="schluesseldienst-in-neukirchen-vluyn/">Neukirchen-Vluyn</a></li>
         <li><a href="schluesseldienst-in-oberhausen/">Oberhausen</a></li>
         <li><a href="schluesseldienst-in-ratingen/">Ratingen</a></li>
-        <li><a href="schluesseldienst-in-recklinghausen/">Reckling&shy;hausen</a></li>
         <li><a href="schluesseldienst-in-rheinberg/">Rheinberg</a></li>
         <li><a href="schluesseldienst-in-solingen/">Solingen</a></li>
         <li><a href="schluesseldienst-in-witten/">Witten</a></li>
         <li><a href="schluesseldienst-in-wuppertal/">Wuppertal</a></li>
-        <li><a href="schluesseldienst-in-xanten/">Xanten</a></li>
       </ul>
     </nav>
   </div>
   <div class="innen fuss-zeile">
-    <p>Schlüsseldienst Beck, Inhaber Abdulbek Bakarov · <a href="https://www.google.com/maps/place/?q=place_id:ChIJD3zG6zrBuEcROnU4TVddD4E" target="_blank" rel="noopener">Google-Unternehmensprofil</a></p>
+    <p>Schlüsseldienst Beck · <a href="https://www.google.com/maps/place/?q=place_id:ChIJD3zG6zrBuEcROnU4TVddD4E" target="_blank" rel="noopener">Google-Unternehmensprofil</a></p>
     <nav aria-label="Rechtliches">
       <a href="impressum/">Impressum</a>
       <a href="datenschutz/">Datenschutz</a>
@@ -743,10 +800,10 @@ body { --dock-platz: 76px; }
 
 <div class="dock">
   <a class="knopf" href="tel:+492087686233"><svg class="icon" aria-hidden="true"><use href="#i-tel"/></svg>Anrufen</a>
-  <a class="knopf wa" href="https://wa.me/4915792450008" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+  <a class="knopf wa" href="https://wa.me/4915792450050" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
 </div>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Locksmith","@id":"https://cesurd.github.io/beck/#locksmith","name":"Schlüsseldienst Beck","alternateName":"Beck Schlüsseldienst und Sicherheitstechnik","url":"https://cesurd.github.io/beck/","logo":"https://cesurd.github.io/beck/assets/img/logo-beck-gruen.svg","image":"https://cesurd.github.io/beck/assets/og/og-start.jpg","telephone":"+49 208 7686233","address":{"@type":"PostalAddress","streetAddress":"Friedrichstraße 10","postalCode":"45468","addressLocality":"Mülheim an der Ruhr","addressCountry":"DE"},"geo":{"@type":"GeoCoordinates","latitude":51.4255009,"longitude":6.881527},"hasMap":"https://maps.google.com/?cid=9299754385082447162","areaServed":[{"@type":"City","name":"Mülheim an der Ruhr"},{"@type":"Place","name":"Styrum, Mülheim an der Ruhr"},{"@type":"Place","name":"Dümpten, Mülheim an der Ruhr"},{"@type":"Place","name":"Speldorf, Mülheim an der Ruhr"},{"@type":"Place","name":"Saarn, Mülheim an der Ruhr"},{"@type":"Place","name":"Broich, Mülheim an der Ruhr"},{"@type":"Place","name":"Eppinghofen, Mülheim an der Ruhr"},{"@type":"Place","name":"Heißen, Mülheim an der Ruhr"},{"@type":"Place","name":"Stadtmitte, Mülheim an der Ruhr"},{"@type":"Place","name":"Winkhausen, Mülheim an der Ruhr"},{"@type":"Place","name":"Menden, Mülheim an der Ruhr"},{"@type":"Place","name":"Mintard, Mülheim an der Ruhr"},{"@type":"Place","name":"Selbeck, Mülheim an der Ruhr"},{"@type":"Place","name":"Holthausen, Mülheim an der Ruhr"},{"@type":"City","name":"Essen"},{"@type":"City","name":"Duisburg"},{"@type":"City","name":"Oberhausen"},{"@type":"City","name":"Bochum"},{"@type":"City","name":"Düsseldorf"},{"@type":"City","name":"Ratingen"},{"@type":"City","name":"Meerbusch"},{"@type":"City","name":"Wuppertal"},{"@type":"City","name":"Solingen"},{"@type":"City","name":"Haan"},{"@type":"City","name":"Hilden"},{"@type":"City","name":"Witten"},{"@type":"City","name":"Moers"},{"@type":"City","name":"Neukirchen-Vluyn"},{"@type":"City","name":"Kempen"},{"@type":"City","name":"Recklinghausen"},{"@type":"City","name":"Rheinberg"},{"@type":"City","name":"Xanten"}],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"paymentAccepted":"Cash, Credit Card"},{"@type":"WebPage","@id":"https://cesurd.github.io/beck/#webpage","url":"https://cesurd.github.io/beck/","name":"Schlüsseldienst Mülheim an der Ruhr · ab 49 € | Beck","inLanguage":"de","about":{"@id":"https://cesurd.github.io/beck/#locksmith"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://cesurd.github.io/beck/assets/og/og-start.jpg","width":1200,"height":630}},{"@type":"FAQPage","@id":"https://cesurd.github.io/beck/#fragen","mainEntity":[{"@type":"Question","name":"Was kostet eine Türöffnung in Mülheim?","acceptedAnswer":{"@type":"Answer","text":"Eine Zimmertür öffnen wir werktags (Mo–Fr, 9:00–18:30 Uhr) ab 49 €, eine Wohnungstür ab 69 €. Samstags, sonntags und an Feiertagen (9:00–16:00 Uhr) kostet die Wohnungstür ab 129 €. Dazu kommen 36 € Anfahrt. Abends, nachts und an Feiertagen kommen feste Zuschläge von 50 bis 100 % hinzu. Was Ihr Einsatz insgesamt kostet, sagen wir Ihnen vorher am Telefon."}},{"@type":"Question","name":"Wie schnell sind Sie da?","acceptedAnswer":{"@type":"Answer","text":"In Mülheim an der Ruhr sind wir im Schnitt in 10–20 Minuten vor Ort. Für andere Orte fragen Sie bitte am Telefon nach."}},{"@type":"Question","name":"Wird die Tür beim Öffnen beschädigt?","acceptedAnswer":{"@type":"Answer","text":"Wir öffnen Türen nach Möglichkeit zerstörungsfrei. Muss doch ein Zylinder ersetzt werden, tauschen wir ihn ab 79 € zuzüglich Material."}},{"@type":"Question","name":"Warum muss ich mich ausweisen?","acceptedAnswer":{"@type":"Answer","text":"Wir öffnen nur mit Legitimation, zum Beispiel mit Ihrem Ausweis. Liegt er in der Wohnung, nennen Sie uns Einzelheiten Ihrer Einrichtung. So geht Ihre Tür nur für Menschen auf, die dazu berechtigt sind."}},{"@type":"Question","name":"Sind Sie nachts, am Wochenende und an Feiertagen erreichbar?","acceptedAnswer":{"@type":"Answer","text":"Ja. Wir sind 24 Stunden erreichbar, auch an Wochenenden und Feiertagen."}},{"@type":"Question","name":"Öffnen Sie auch Autos und Tresore?","acceptedAnswer":{"@type":"Answer","text":"Ja. Wir öffnen auch Autos, Tresore und elektronische Schlösser."}},{"@type":"Question","name":"Machen Sie Schlüssel nach?","acceptedAnswer":{"@type":"Answer","text":"Ja, wir machen Schlüssel nach, auch Autoschlüssel samt Programmierung. Unser Laden in der Friedrichstraße 10 ist täglich von 13:00 bis 15:00 Uhr geöffnet. Schließanlagen gehören ebenfalls zu unseren Leistungen."}},{"@type":"Question","name":"Wie kann ich bezahlen?","acceptedAnswer":{"@type":"Answer","text":"Bar oder mit Karte. Zu jedem Einsatz bekommen Sie eine Rechnung."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Locksmith","@id":"https://cesurd.github.io/beck/#locksmith","name":"Schlüsseldienst Beck","alternateName":"Beck Schlüsseldienst und Sicherheitstechnik","url":"https://cesurd.github.io/beck/","logo":"https://cesurd.github.io/beck/assets/img/logo-beck-gruen.svg","image":"https://cesurd.github.io/beck/assets/og/og-start.jpg","telephone":"+49 208 7686233","address":{"@type":"PostalAddress","streetAddress":"Friedrichstraße 10","postalCode":"45468","addressLocality":"Mülheim an der Ruhr","addressCountry":"DE"},"geo":{"@type":"GeoCoordinates","latitude":51.4255009,"longitude":6.881527},"hasMap":"https://maps.google.com/?cid=9299754385082447162","areaServed":[{"@type":"City","name":"Mülheim an der Ruhr"},{"@type":"Place","name":"Styrum, Mülheim an der Ruhr"},{"@type":"Place","name":"Dümpten, Mülheim an der Ruhr"},{"@type":"Place","name":"Speldorf, Mülheim an der Ruhr"},{"@type":"Place","name":"Saarn, Mülheim an der Ruhr"},{"@type":"Place","name":"Broich, Mülheim an der Ruhr"},{"@type":"Place","name":"Eppinghofen, Mülheim an der Ruhr"},{"@type":"Place","name":"Heißen, Mülheim an der Ruhr"},{"@type":"Place","name":"Stadtmitte, Mülheim an der Ruhr"},{"@type":"Place","name":"Winkhausen, Mülheim an der Ruhr"},{"@type":"Place","name":"Menden, Mülheim an der Ruhr"},{"@type":"Place","name":"Mintard, Mülheim an der Ruhr"},{"@type":"Place","name":"Selbeck, Mülheim an der Ruhr"},{"@type":"Place","name":"Holthausen, Mülheim an der Ruhr"},{"@type":"City","name":"Bochum"},{"@type":"City","name":"Bottrop"},{"@type":"City","name":"Duisburg"},{"@type":"City","name":"Düsseldorf"},{"@type":"City","name":"Essen"},{"@type":"City","name":"Gelsenkirchen"},{"@type":"City","name":"Haan"},{"@type":"City","name":"Herne"},{"@type":"City","name":"Hilden"},{"@type":"City","name":"Kempen"},{"@type":"City","name":"Meerbusch"},{"@type":"City","name":"Moers"},{"@type":"City","name":"Neukirchen-Vluyn"},{"@type":"City","name":"Oberhausen"},{"@type":"City","name":"Ratingen"},{"@type":"City","name":"Rheinberg"},{"@type":"City","name":"Solingen"},{"@type":"City","name":"Witten"},{"@type":"City","name":"Wuppertal"}],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"paymentAccepted":"Cash, Credit Card"},{"@type":"WebPage","@id":"https://cesurd.github.io/beck/#webpage","url":"https://cesurd.github.io/beck/","name":"Schlüsseldienst Mülheim an der Ruhr · ab 49 € | Beck","inLanguage":"de","about":{"@id":"https://cesurd.github.io/beck/#locksmith"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://cesurd.github.io/beck/assets/og/og-start.jpg","width":1200,"height":630}},{"@type":"FAQPage","@id":"https://cesurd.github.io/beck/#fragen","mainEntity":[{"@type":"Question","name":"Was kostet eine Türöffnung in Mülheim?","acceptedAnswer":{"@type":"Answer","text":"Eine Zimmertür öffnen wir werktags (Mo–Fr, 9:00–18:30 Uhr) ab 49 €, jeweils zzgl. MwSt. und 36 € Anfahrt. Abends, nachts und an Feiertagen gelten Zuschläge. Was Ihr Einsatz insgesamt kostet, sagen wir Ihnen vorher am Telefon. Alle Beträge stehen auf unserer Preisseite."}},{"@type":"Question","name":"Wie schnell sind Sie da?","acceptedAnswer":{"@type":"Answer","text":"In Mülheim an der Ruhr sind wir im Schnitt in 10–20 Minuten vor Ort. Für andere Orte fragen Sie bitte am Telefon nach."}},{"@type":"Question","name":"Wird die Tür beim Öffnen beschädigt?","acceptedAnswer":{"@type":"Answer","text":"Wir öffnen Türen nach Möglichkeit zerstörungsfrei. Muss doch ein Zylinder ersetzt werden, tauschen wir ihn ab 79 € zuzüglich Material."}},{"@type":"Question","name":"Warum muss ich mich ausweisen?","acceptedAnswer":{"@type":"Answer","text":"Wir öffnen nur mit Legitimation, zum Beispiel mit Ihrem Ausweis. So geht Ihre Tür nur für Menschen auf, die dazu berechtigt sind."}},{"@type":"Question","name":"Mein Ausweis liegt in der Wohnung. Was nun?","acceptedAnswer":{"@type":"Answer","text":"Dann beschreiben Sie uns vorab Dinge in der Wohnung, die nur Bewohner kennen. Nach dem Öffnen prüfen wir das zusammen, und Sie zeigen uns Ihren Ausweis."}},{"@type":"Question","name":"Mein Schlüssel ist im Schloss abgebrochen. Was tun?","acceptedAnswer":{"@type":"Answer","text":"Ziehen Sie das Reststück nicht mit einer Zange heraus. Wir entfernen es und tauschen den Zylinder, falls er dabei Schaden genommen hat. Ein neuer Zylinder kostet ab 79 € zuzüglich Material."}},{"@type":"Question","name":"Woran erkenne ich einen seriösen Schlüsseldienst?","acceptedAnswer":{"@type":"Answer","text":"Ein seriöser Betrieb nennt den Preis vor dem Einsatz, öffnet nur für Berechtigte und stellt eine Rechnung aus. Uns finden Sie außerdem in unserem Laden in der Friedrichstraße, und für Schäden steht unsere Betriebshaftpflicht ein."}},{"@type":"Question","name":"Sind Sie nachts, am Wochenende und an Feiertagen erreichbar?","acceptedAnswer":{"@type":"Answer","text":"Ja. Wir sind 24 Stunden erreichbar, auch an Wochenenden und Feiertagen."}},{"@type":"Question","name":"Öffnen Sie auch Autos und Tresore?","acceptedAnswer":{"@type":"Answer","text":"Ja. Wir öffnen auch Autos, Tresore und elektronische Schlösser."}},{"@type":"Question","name":"Machen Sie Schlüssel nach?","acceptedAnswer":{"@type":"Answer","text":"Ja, wir machen Schlüssel nach und programmieren Autoschlüssel. Unser Laden in der Friedrichstraße 10 ist täglich von 13:00 bis 15:00 Uhr geöffnet. Schließanlagen gehören ebenfalls zu unseren Leistungen."}},{"@type":"Question","name":"Wie kann ich bezahlen?","acceptedAnswer":{"@type":"Answer","text":"Bar oder mit Karte. Zu jedem Einsatz bekommen Sie eine Rechnung."}}]}]}</script>
 <script>
 (function () {
   var html = document.documentElement;
