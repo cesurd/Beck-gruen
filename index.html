@@ -332,8 +332,8 @@ body { --dock-platz: 76px; }
 @media (min-width: 1100px) { .dock { display: none; } body { --dock-platz: 0px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
 
-#kurz { padding-top: 0; }
-#kurz .kopfzeile p { max-width: 44em; }
+.abschnitt.anschluss { padding-top: 0; }
+.anschluss .kopfzeile p { max-width: 44em; }
 .kurzinfo { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; margin: 0; }
 @media (min-width: 380px) { .kurzinfo { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 900px) { .kurzinfo { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; } }
@@ -475,7 +475,7 @@ body { --dock-platz: 76px; }
   </div>
 </section>
 
-<section class="abschnitt band" id="kurz" aria-labelledby="kurz-titel">
+<section class="abschnitt band anschluss" id="kurz" aria-labelledby="kurz-titel">
   <div class="innen">
     <div class="kopfzeile">
       <h2 id="kurz-titel" class="strich">Schlüsseldienst Mülheim: das Wichtigste in&nbsp;Kürze</h2>
